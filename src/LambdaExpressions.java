@@ -1,6 +1,8 @@
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Comparator;
+import static java.lang.String.format;
+
 
 public class LambdaExpressions {
 
@@ -13,7 +15,7 @@ public class LambdaExpressions {
         return number;
     }
 
-
+//Question 1
     public static void main(String[] args) {
 
         int size = 100;
@@ -41,7 +43,19 @@ public class LambdaExpressions {
 
         System.out.println(Arrays.toString(arr));
 
-        }
+        //Question 2
+     final var filteredList = new FilteredList<Integer>(item -> item % 2 == 1);
+     filteredList.add(13);
+     filteredList.add(15);
+     filteredList.add(17);
+     filteredList.forEach(item -> System.out.println(format("Item %d is in the list.", item)));
+     try {
+         filteredList.add(20);
+     } catch (final IllegalArgumentException illegalArgumentException) {
+         System.out.println(illegalArgumentException.getMessage());
+     }
+        System.out.println();
+    }
 
 
 
